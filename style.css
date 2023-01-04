@@ -25,6 +25,7 @@
 
 body {
   background: var(--bg-url) no-repeat top center/cover;
+  height: 100vh;
 }
 
 body * {
@@ -33,7 +34,8 @@ body * {
 }
 
 #container {
-  width: 360px;
+  width: 100%;
+  max-width: 588px;
   margin: 56px auto 0px;
   padding: 0 24px;
 }
@@ -73,11 +75,15 @@ body * {
   left: 0;
   z-index: 1;
   transform: translateY(-50%);
+  animation: slide-back 0.2s;
 }
 
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-in 0.2s forwards;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 #switch span {
   display: block;
@@ -126,6 +132,8 @@ ul li a:hover {
   border: 1.5px solid var(--text-color);
 }
 
+/* social links */
+
 #social-links {
   display: flex;
   justify-content: center;
@@ -136,20 +144,39 @@ ul li a:hover {
 
 #social-links a {
   display: flex;
-  align-content: center;
+  align-items: center;
   justify-content: center;
   padding: 16px;
+
   transition: background 0.2s;
   border-radius: 50%;
 }
 
 #social-links a:hover {
-  background: rgba(255, 255, 255, 0.2);
-  padding: 16px;
+  background: var(--highlight-color);
 }
 
 footer {
   padding: 24px 0;
   text-align: center;
   font-size: 14px;
+}
+
+/* animation */
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
+  }
 }
