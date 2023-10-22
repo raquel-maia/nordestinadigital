@@ -12,6 +12,6 @@ function toggleMode() {
     
   } else {
     // set tiver sem light mode, manter a imagem normal
-    img.setAttribute("src", "./assets/Avatar2.png")
+    img.setAttribute("src", "./assets/avatar2.png")
   }
 }
